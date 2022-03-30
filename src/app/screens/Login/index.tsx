@@ -12,11 +12,8 @@ interface FormValues {
     email: string; // regular field, same as inferred type
     password: string; // union, more specific than inferred type (string)
 }
-
-
-export default function Login() {
-    const { signed, Login } = useAuth();
-    console.log(signed);
+const Login = () => {
+    const { Login } = useAuth();
     const [Loading, setLoading] = useState(false);
     const form = useForm<FormValues>({
         initialValues: {
@@ -37,18 +34,18 @@ export default function Login() {
         },
 
     });
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         setLoading(true);
         console.log('aqui', form.values);
-        const response = Login(form.values)
+        const response = await Login(form.values)
         console.log(response);
         setLoading(false);
     }
 
     return (
         <Grid align="flex-start" justify="space-between" py={0}>
-            <Grid.Col span={5}>
+            <Grid.Col md={6} lg={5}>
                 <Container py={20}>
                     <Box px={50} mx="auto" my="auto">
                         <Image py={20} width={150} src={LogoInsideImg} />
@@ -78,7 +75,7 @@ export default function Login() {
                     </Box>
                 </Container>
             </Grid.Col>
-            <Grid.Col span={7} px={0} py={0} style={{ backgroundColor: 'red' }} >
+            <Grid.Col md={6} lg={7} px={0} py={0}  >
                 <Box sx={{ height: '100vh' }} style={{ padding: 0 }}>
                     <Image height={'100vh'} src={InsideLogin} />
                 </Box>
@@ -86,3 +83,4 @@ export default function Login() {
         </Grid >
     )
 }
+export { Login }

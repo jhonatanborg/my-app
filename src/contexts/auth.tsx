@@ -10,9 +10,8 @@ interface AuthContextData {
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-export const AuthProvider: React.FC = ({ children }) => {
+const AuthProvider: React.FC = ({ children }) => {
     const [user, setUser] = useState<object | null>(null);
-
     useEffect(() => {
         const storagedUser = sessionStorage.getItem('@App:user');
         const storagedToken = sessionStorage.getItem('@App:token');
@@ -22,7 +21,6 @@ export const AuthProvider: React.FC = ({ children }) => {
         }
     }, []);
     async function Login(userData: object) {
-        console.log(userData);
         const response = await signIn(userData);
         setUser(response.data.user);
         sessionStorage.setItem('@App:user', JSON.stringify(response.data.user));
@@ -32,7 +30,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         setUser(null);
     }
     return (
-        <AuthContext.Provider value={{ signed: Boolean(user), user, Login, Logout }}>
+        <AuthContext.Provider value={{ signed: !!user, user, Login, Logout }}>
             {children}
         </AuthContext.Provider>
     );
@@ -40,7 +38,8 @@ export const AuthProvider: React.FC = ({ children }) => {
 };
 
 
-export function useAuth() {
+function useAuth() {
     const context = useContext(AuthContext);
     return context;
 }
+export { AuthProvider, useAuth };

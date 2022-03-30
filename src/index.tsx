@@ -10,7 +10,7 @@ ReactDOM.render(
       <MantineProvider
         theme={{
           colors: {
-            brand: ['#F0BBDD', '#ED9BCF', '#4C366B', '#4C366B', '#4C366B', '#4C366B', '#4C366B', '#4C366B', '#4C366B', '#4C366B'],
+            brand: ['#EBD6FD', '#EBD6FD', '#7635DC', '#7635DC', '#7635DC', '#7635DC', '#7635DC', '#7635DC', '#7635DC', '#7635DC'],
           },
           primaryColor: 'brand',
         }}
