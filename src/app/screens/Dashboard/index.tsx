@@ -1,9 +1,6 @@
-import React from 'react'
+import React from 'react';
 
 const Dashboard = () => {
-    return (
-        <div>index</div>
-    )
-}
-export { Dashboard }
-
+  return <div>Dashboard</div>;
+};
+export { Dashboard };

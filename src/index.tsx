@@ -1,23 +1,38 @@
+import { MantineProvider } from '@mantine/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+
+import './styles/main.css';
 import App from './App';
-import { BrowserRouter } from "react-router-dom";
-import { MantineProvider } from '@mantine/core';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <MantineProvider
-        theme={{
-          colors: {
-            brand: ['#EBD6FD', '#EBD6FD', '#7635DC', '#7635DC', '#7635DC', '#7635DC', '#7635DC', '#7635DC', '#7635DC', '#7635DC'],
-          },
-          primaryColor: 'brand',
-        }}
-      >
+    <MantineProvider
+      theme={{
+        fontFamily: 'Inter, sans-serif',
+        headings: { fontFamily: 'Inter, sans-serif' },
+        colors: {
+          brand: [
+            '#EBD6FD',
+            '#EBD6FD',
+            '#7635DC',
+            '#7635DC',
+            '#7635DC',
+            '#7635DC',
+            '#7635DC',
+            '#7635DC',
+            '#7635DC',
+            '#7635DC',
+          ],
+        },
+        primaryColor: 'brand',
+      }}
+    >
+      <BrowserRouter>
         <App />
-      </MantineProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </MantineProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

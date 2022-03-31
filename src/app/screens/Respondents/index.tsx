@@ -1,9 +1,6 @@
-import React from 'react'
+import React from 'react';
 
 const Respondents = () => {
-    return (
-        <div>index</div>
-    )
-}
-export { Respondents }
-
+  return <div>Respondents</div>;
+};
+export { Respondents };

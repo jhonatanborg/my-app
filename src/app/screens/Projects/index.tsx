@@ -1,9 +1,6 @@
-import React from 'react'
+import React from 'react';
 
 const Projects = () => {
-    return (
-        <div>index</div>
-    )
-}
-export { Projects }
-
+  return <div>index</div>;
+};
+export { Projects };
